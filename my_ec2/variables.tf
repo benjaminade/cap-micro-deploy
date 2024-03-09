@@ -6,3 +6,5 @@ variable "key_pair_name" {}
 variable "instance_type" {}
 variable "map_public_ip_on_launch_true_false" {}
 variable "region" {}
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
