@@ -16,9 +16,6 @@ jobs:
       run:
         working-directory: my_ec2
     steps:
-      - name: List repository files
-        run: ls -l
-
       - name: Checkout code
         uses: actions/checkout@v2
 
