@@ -6,5 +6,9 @@ variable "key_pair_name" {}
 variable "instance_type" {}
 variable "map_public_ip_on_launch_true_false" {}
 variable "region" {}
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
+variable "AWS_ACCESS_KEY_ID" {
+  
+}
+variable "AWS_SECRET_ACCESS_KEY" {
+  
+}
