@@ -27,13 +27,13 @@ jobs:
           terraform_version: 0.15.0
       
       - name: Terraform Init
-        run: terraform init ./test/my_ec2
+        run: terraform init ./my_ec2
       
       - name: Terraform Validate
-        run: terraform validate ./test/my_ec2
+        run: terraform validate ./my_ec2
       
       - name: Terraform Plan
-        run: terraform plan -out=tfplan ./test/my_ec2
+        run: terraform plan -out=tfplan ./my_ec2
       
       - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan ./test/my_ec2
+        run: terraform apply -auto-approve tfplan ./my_ec2
