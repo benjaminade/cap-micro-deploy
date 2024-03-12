@@ -1,4 +1,12 @@
 terraform {
+    backend "s3" {
+    bucket = "microservices-deploy-remote-backend"
+    key = "benglobal/s3/terraform.tfstate"
+    region = "us-east-1"
+    dynamodb_table = "microservices_dynamodb_table"
+    encrypt = true
+
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -9,8 +17,4 @@ terraform {
 
 provider "aws" {
   region = var.region
-  # access_key = var.AWS_ACCESS_KEY_ID
-  # secret_key = var.AWS_SECRET_ACCESS_KEY
-  # access_key = var.AWS_ACCESS_KEY_ID 
-  # secret_key = var.AWS_SECRET_ACCESS_KEY 
 }
