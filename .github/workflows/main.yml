@@ -33,7 +33,7 @@ jobs:
           terraform_version: 1.1.0
 
       - name: Create s3 bucket
-        run: cd ./backend
+        run: cd backend
           # cd ./backend
           # terraform init
           # terraform apply -auto-approve
@@ -47,7 +47,7 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: Create ec2
-        run: cd ./test/my_ec2
+        run: cd /test/my_ec2
           # cd ./backend
           # terraform init
           # terraform apply -auto-approve
