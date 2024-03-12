@@ -33,29 +33,35 @@ jobs:
           terraform_version: 1.1.0
 
       - name: Create s3 bucket
-        run: cd backend
-          # cd ./backend
-          # terraform init
-          # terraform apply -auto-approve
-      - name: Terraform init
-        run: terraform init 
+        working-directory: ./backend
+        run: |
+          terraform init
+          terraform apply
+      
+      #     # terraform init
+      #     # terraform apply -auto-approve
+      # - name: Terraform init
+      #   run: terraform init 
 
-      - name: Terraform Plan
-        run: terraform plan
+      # - name: Terraform Plan
+      #   run: terraform plan
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve
 
       - name: Create ec2
-        run: cd /test/my_ec2
+        working-directory: /test/my_ec2
+        run: |
+          terraform init
+          terraform apply
           # cd ./backend
           # terraform init
           # terraform apply -auto-approve
-      - name: Terraform init
-        run: terraform init 
+      # - name: Terraform init
+      #   run: terraform init 
 
-      - name: Terraform Plan
-        run: terraform plan
+      # - name: Terraform Plan
+      #   run: terraform plan
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve
