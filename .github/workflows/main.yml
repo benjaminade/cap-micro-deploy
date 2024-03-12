@@ -7,14 +7,14 @@ on:
 
 jobs:
   terraform:
-    name: Deploy Infrastructure
+    name: create s3 bucket and dynamodb table locking
     runs-on: ubuntu-latest
     # env:
     #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    defaults:
-      run:
-        working-directory: ./test/my_ec2
+    # defaults:
+    #   run:
+    #     working-directory: ./backend
   
     steps:
       - name: Checkout code
@@ -32,8 +32,27 @@ jobs:
         with:
           terraform_version: 1.1.0
 
-      - name: Terraform Init
-        run: terraform init
+      - name: Create s3 bucket
+        run: cd ./backend
+          # cd ./backend
+          # terraform init
+          # terraform apply -auto-approve
+      - name: Terraform init
+        run: terraform init 
+
+      - name: Terraform Plan
+        run: terraform plan
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+
+      - name: Create ec2
+        run: cd ./test/my_ec2
+          # cd ./backend
+          # terraform init
+          # terraform apply -auto-approve
+      - name: Terraform init
+        run: terraform init 
 
       - name: Terraform Plan
         run: terraform plan
